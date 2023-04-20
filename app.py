@@ -271,6 +271,7 @@ def show_recommended_items(item_liked):
 
 def show_popular_items(offset):
     st.subheader('Items sorted by popularity:')
+    st.text('Here are some of the more popular products in the store:')
     products = get_products(offset)
     col = st.columns(5, gap='medium')
     for i in range(5):

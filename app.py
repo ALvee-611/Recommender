@@ -211,7 +211,10 @@ if st.session_state['show_search_items']:
                     st.session_state['search_article_id'] = products[i][0]
                     a = get_product_details(st.session_state['search_article_id'])
 
-                    st.image(get_images(st.session_state['search_article_id']))
+                    try:
+                        st.image(get_images(st.session_state['search_article_id']))
+                    except:
+                        st.image('Processed_Images_2/img_missing.jpg')
 
                     st.subheader(a[0][0])
 
@@ -253,7 +256,10 @@ def show_recommended_items(item_liked):
                     st.session_state['rec_article_id'] = item_id[i]
                     a = get_product_details(st.session_state['rec_article_id'])
                     
-                    st.image(get_images(st.session_state['rec_article_id']))
+                    try:
+                        st.image(get_images(st.session_state['rec_article_id']))
+                    except:
+                        st.image('Processed_Images_2/img_missing.jpg')
 
                     st.subheader(a[0][0])
 
@@ -278,9 +284,10 @@ def show_popular_items(offset):
             with col[i]:
                 st.session_state['popular_article_id'] = products[i][0]
                 a = get_product_details(st.session_state['popular_article_id'])
-
-                st.image(get_images(st.session_state['popular_article_id']))
-
+                try:
+                    st.image(get_images(st.session_state['popular_article_id']))
+                except:
+                    st.image('Processed_Images_2/img_missing.jpg')
                 st.subheader(a[0][0])
 
                 st.write(a[0][1])
